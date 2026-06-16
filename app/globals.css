@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0c;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: rgb(244 244 245);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(234, 168, 86, 0.3);
+    color: #fff;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0c;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    border: 2px solid #0a0a0c;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(234, 168, 86, 0.4);
+  }
+}
+
+@layer components {
+  /* Monospace eyebrow / label */
+  .label {
+    @apply font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-500;
+  }
+
+  /* Glass panel / card */
+  .panel {
+    @apply rounded-[26px] border border-white/[0.07] bg-white/[0.02] backdrop-blur-xl;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
+      0 30px 60px -40px rgba(0, 0, 0, 0.9);
+  }
+
+  .panel-hover {
+    @apply transition-all duration-500 hover:border-white/[0.14] hover:bg-white/[0.04];
+  }
+
+  /* Pill */
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.03] px-4 py-2 text-sm text-zinc-300 transition-colors;
+  }
+
+  .gradient-text {
+    background: linear-gradient(120deg, #f7d9a8 0%, #eaa856 45%, #d4893a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-[#0a0a0c] transition-transform duration-300 hover:scale-[1.03] active:scale-95;
+    background: linear-gradient(120deg, #f7d9a8, #eaa856 55%, #c97f33);
+    box-shadow: 0 10px 30px -10px rgba(234, 168, 86, 0.5);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-6 py-3 text-sm font-medium text-zinc-200 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.05];
+  }
+}
+
+/* Soft radial glows used in the page background */
+.glow-warm {
+  background: radial-gradient(
+    circle at center,
+    rgba(234, 168, 86, 0.16) 0%,
+    transparent 60%
+  );
+}
+.glow-cool {
+  background: radial-gradient(
+    circle at center,
+    rgba(70, 110, 220, 0.12) 0%,
+    transparent 60%
+  );
+}
+
+/* Subtle film grain */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Arabic: use the Arabic typeface and drop letter-spacing (it breaks the
+   cursive script). Latin words inside Arabic text keep rendering fine. ── */
+[lang="ar"] body,
+[lang="ar"] .font-sans,
+[lang="ar"] .font-mono,
+[lang="ar"] .label {
+  font-family: var(--font-arabic), "Segoe UI", Tahoma, sans-serif;
+}
+
+[lang="ar"] .label,
+[lang="ar"] .font-mono,
+[lang="ar"] [class*="tracking-"] {
+  letter-spacing: 0 !important;
+}
