@@ -25,9 +25,25 @@ const cairo = Cairo({
   display: "swap",
 });
 
+// Your live URL — update this if you add a custom domain later.
+const SITE_URL = "https://portfolio-eight-neon-orjq80t8ft.vercel.app";
+
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: meta.title,
   description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    url: SITE_URL,
+    siteName: "Ahmed Abdelsadok",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: meta.title,
+    description: meta.description,
+  },
 };
 
 // Set lang/dir from the saved choice before paint to avoid an RTL flash.
