@@ -54,7 +54,7 @@ export default function LanguageSwitcher() {
       {open && (
         <ul
           role="listbox"
-          className="absolute end-0 z-50 mt-2 min-w-[160px] overflow-hidden rounded-2xl border border-white/10 bg-base/95 p-1.5 shadow-card backdrop-blur-xl"
+          className="absolute end-0 z-50 mt-2 min-w-[160px] overflow-hidden rounded-2xl border border-white/10 bg-ink/95 p-1.5 shadow-card backdrop-blur-xl"
         >
           {languages.map((l) => (
             <li key={l.code}>

@@ -37,7 +37,7 @@ export default function Sidebar() {
               }`}
             >
               <Icon />
-              <span className="pointer-events-none absolute start-full ms-3 whitespace-nowrap rounded-md border border-white/10 bg-base/90 px-2.5 py-1 text-xs text-zinc-200 opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="pointer-events-none absolute start-full ms-3 whitespace-nowrap rounded-md border border-white/10 bg-ink/90 px-2.5 py-1 text-xs text-zinc-200 opacity-0 transition-opacity group-hover:opacity-100">
                 {n.label}
               </span>
             </a>

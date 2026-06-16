@@ -20,7 +20,7 @@ export default function IntroGate({ onEnter }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[60] overflow-y-auto bg-base"
+      className="fixed inset-0 z-[60] overflow-y-auto bg-ink"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}

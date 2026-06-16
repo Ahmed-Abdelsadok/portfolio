@@ -12,7 +12,7 @@ export default function TopNav() {
     <header className="sticky top-3 z-40 px-3 sm:px-5">
       <div className="panel mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-5">
         <a href="#home" className="min-w-0">
-          <div className="truncate text-base font-semibold leading-tight sm:text-lg">
+          <div className="gradient-text w-fit truncate pb-0.5 text-base font-bold leading-tight sm:text-lg">
             {profile.name}
           </div>
           <div className="label mt-1 hidden !text-[10px] !tracking-[0.22em] sm:block">
